@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,11 @@ public class FotoController {
     @PostMapping("api/foto/upload")
     public Boolean uploadFoto(@RequestParam("nome") String nome, @RequestPart("file") MultipartFile file) {
         return fotoService.uploadFoto(nome, file);
+    }
+
+    @DeleteMapping("api/foto/elimina")
+    public Boolean eliminaFoto(@RequestParam("idFoto") Long idFoto) {
+        return fotoService.eliminaFoto(idFoto);
     }
 
 }

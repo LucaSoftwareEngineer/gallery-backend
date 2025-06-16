@@ -44,4 +44,15 @@ public class FotoService {
         return true;
     }
 
+    public Boolean eliminaFoto(Long idFoto) {
+
+        try {
+            fotoRepository.deleteById(idFoto);
+        } catch (Exception e) {
+            return false;
+        }
+        
+        return true;
+    }
+
 }
